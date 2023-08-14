@@ -14,7 +14,6 @@ urlpatterns = [
     path('crear_categoria/', views.crear_categoria, name='crear_categoria'),
     path('editar_categoria/<int:id>', views.editar_categoria, name='editar_categoria'),
     path('eliminar_categoria/<int:id>', views.eliminar_categoria, name='eliminar_categoria'),
-    path('lista_categorias/', views.lista_categorias, name='lista_categorias'),
     path('usuario/<int:id>', views.usuario, name='usuario'),
     path('crear_usuario/', views.crear_usuario, name='crear_usuario'),
     path('editar_usuario/<int:id>', views.editar_usuario, name='editar_usuario'),
