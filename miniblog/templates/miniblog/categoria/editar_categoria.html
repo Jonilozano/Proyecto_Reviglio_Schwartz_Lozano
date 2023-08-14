@@ -1,0 +1,18 @@
+{% extends 'miniblog/base.html' %}
+
+{% block content %}
+<div>
+    <h2>Editar categoría</h2>
+    <form method="post" action="{% url 'editar_categoria' categoria.id %}">
+        {% csrf_token %}
+        <div>
+        <label for="nombre">Nuevo nombre:</label>
+        <input type="text" name="nombre" value="{{ categoria.nombre }}" required>
+        <button type="submit">Guardar cambios</button>
+        </div>
+    </form>
+</div>
+<div class="botones">
+    <a href="{% url 'lista_categorias' %}">Volver a la lista de categorías</a>
+</div>
+{% endblock %}
