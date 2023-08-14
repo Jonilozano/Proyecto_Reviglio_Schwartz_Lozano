@@ -57,11 +57,6 @@ def categoria(request, id):
     return render(request, 'miniblog/categoria/categoria.html', {'categoria':categoria, 'posts':posts})
 
 
-def lista_categorias(request):
-    categorias = Categoria.objects.all()
-    return render(request, 'miniblog/categoria/lista_categorias.html', {'categorias':categorias})
-
-
 def lista_post(request):
     posts = Post.objects.all()
     return render(request, 'miniblog/posteos/lista_post.html', {'posts':posts})
@@ -100,7 +95,7 @@ def crear_categoria(request):
         categoria = Categoria()
         categoria.nombre = request.POST['nombre']
         categoria.save()
-        return redirect('lista_categorias')
+        return redirect('home')
     else:
         return render(request, 'miniblog/categoria/crear_categoria.html')
 
@@ -110,7 +105,7 @@ def editar_categoria(request, id):
     if request.POST:
         categoria.nombre = request.POST['nombre']
         categoria.save()
-        return redirect('lista_categorias')
+        return redirect('home')
     else:
         return render(request, 'miniblog/categoria/editar_categoria.html', {'categoria':categoria})
 
@@ -118,4 +113,4 @@ def editar_categoria(request, id):
 def eliminar_categoria(request, id):
     categoria = Categoria.objects.get(id=id)
     categoria.delete()
-    return redirect('lista_categorias')
+    return redirect('home')
